@@ -1,6 +1,6 @@
 # Static-Coordinate Network Field Theory: A Scale-Invariant Scalar Mechanism for Cosmological Redshift and Gravitational Emergence
 
-**Author:** Independent Research Specification  
+**Compiler:** Independent Research Specification  
 **Date:** September 2026  
 **License:** MIT  
 
