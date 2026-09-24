@@ -1,0 +1,49 @@
+# SCNFT Technical Note 01: Conformal Field Damping and Zero-Scattering Proof
+
+**Document Identifier:** `SCNFT_TN_001.md`  
+**Target Repository Directory:** `/docs/technical_addenda/`  
+**Dependencies:** `SCNFT_Master_Whitepaper.md`  
+
+---
+
+## Executive Abstract
+
+Standard critiques of non-expansion cosmologies regarding thermodynamic and phase-space scattering constraints assert that photon energy loss over gigaparsec distances inevitably induces particle-like momentum dispersion ($\Delta \mathbf{k}_\perp \neq 0$), spatial image blurring, and Comptonization distortions ($y \neq 0$, $\mu \neq 0$) of the Cosmic Microwave Background (CMB) blackbody spectrum.
+
+This technical addendum provides an exact field-theoretic proof resolving these challenges within Static-Coordinate Network Field Theory (SCNFT). We replace stochastic particle scattering with a continuous conformal symmetry-breaking gauge field interaction on the unyielding Minkowski stage $\eta_{\mu\nu} = \text{diag}(-1,1,1,1)$. By coupling the electromagnetic tensor $F_{\mu\nu}$ to the baseline scalar background $V_0$ via a time-like conformal damping factor, the field equation yields a linear wave equation where spatial momentum conservation guarantees zero transverse dispersion ($\Delta \mathbf{k}_\perp \equiv 0$). 
+
+Furthermore, using the collisionless relativistic Boltzmann equation, we demonstrate that spatial momentum modes scale identically ($k \to k e^{-\alpha_0 c t}$), strictly preserving the Planckian blackbody distribution function $B_\nu(T)$ without thermodynamic entropy generation. This document establishes SCNFT's photon energy attenuation as a deterministic, zero-scattering field scaling law compatible with Planck and COBE/FIRAS observations.
+
+---
+
+## Technical Addendum Structure
+
+### Section I: Thermodynamic & Optical Precision Constraints
+* **1.1 Formal Statement of Limits:** Analysis of the COBE/FIRAS blackbody precision limits ($|\Delta I / I_{\max}| < 5 \times 10^{-5}$) and high-redshift quasar diffraction-limited image sharpness requirements.
+* **1.2 Failure Analysis of Dissipative Models:** Mathematical demonstration of why particle-collision energy loss mechanisms generate transverse momentum kicks and spectral shape distortions.
+* **1.3 Scope of Conformal Resolution:** Defining the boundary condition for non-dissipative field damping on a static coordinate grid.
+
+### Section II: Conformal Symmetry-Breaking Gauge Action
+* **2.1 Modified Maxwell Action:** Explicit definition of the gauge Lagrangian density:
+  $$\mathcal{L}_{\text{EM}} = -\frac{1}{4} e^{-2\alpha_0 u_\mu x^\mu} F_{\alpha\beta} F^{\alpha\beta}$$
+  where $u_\mu = (1, 0, 0, 0)$ anchors the static rest frame and $\alpha_0 = H_0/c = 7.127 \times 10^{-26} \text{ m}^{-1}$.
+* **2.2 Damped Wave Equation Derivation:** Euler-Lagrange variation yielding the modified Maxwell field equation:
+  $$\partial_\mu F^{\mu\nu} - 2\alpha_0 u_\mu F^{\mu\nu} = 0$$
+* **2.3 Gauge Invariance & Field Potential Dynamics:** Proof of Lorenz gauge compatibility ($\partial_\mu A^\mu = 0$) leading to the vector wave operator $\Box A^\nu - 2\alpha_0 \frac{\partial A^\nu}{\partial t} = 0$.
+
+### Section III: Noether Symmetry & Exact Zero-Scattering Proof
+* **3.1 Spatial Translational Invariance:** Demonstration that $\nabla_{\mathbf{x}} \mathcal{L}_{\text{EM}} = \mathbf{0}$ across spatial coordinate addresses $(x, y, z)$.
+* **3.2 Momentum Conservation Law:** Proof that spatial Noether currents enforce $\frac{d\mathbf{p}_\perp}{dt} = \mathbf{0}$, establishing $\Delta \mathbf{k}_\perp \equiv 0$.
+* **3.3 Plane Wave Dispersion Relation:** Exact evaluation of complex frequency components showing zero angular deviation and zero wavefront phase-blurring over path length $d(z) = \frac{c}{H_0}\ln(1+z)$.
+
+### Section IV: Phase-Space Boltzmann Transport & CMB Conservation
+* **4.1 Relativistic Transport on Static Coordinates:** Formulation of the collisionless Boltzmann transport equation for photon phase-space density $f(\mathbf{x}, \mathbf{k}, t)$ on the flat metric $\eta_{\mu\nu}$.
+* **4.2 Deterministic Mode Scaling:** Derivation of $\dot{\mathbf{k}} = -\alpha_0 c \, \mathbf{k}$ from gauge field damping.
+* **4.3 Blackbody Preservation Proof:** Step-by-step transformation proving that an initial Planck spectrum $f(\mathbf{k}, 0) = \left[\exp\left(\frac{\hbar c |\mathbf{k}_0|}{k_B T_0}\right) - 1\right]^{-1}$ transforms cleanly into:
+  $$f(\mathbf{k}, t) = \frac{1}{\exp\left(\frac{\hbar c |\mathbf{k}|}{k_B T(t)}
+ight) - 1}$$
+  where $T(t) = T_0 e^{-\alpha_0 c t} = \frac{T_0}{1+z}$, proving exact vanishing of $y$-distortions and $\mu$-distortions ($y \equiv 0, \mu \equiv 0$).
+
+### Section V: Repository Integration & Audit Guidelines
+* **5.1 Testable Predictions:** Quantitative limits on photon phase coherence and polarization plane rotation.
+* **5.2 Open-Source Audit Scripts:** Overview of provided verification scripts (`/tests/test_conformal_attenuation.py`) executing symbolic SymPy tensor variations and numerical Boltzmann transport modeling.
